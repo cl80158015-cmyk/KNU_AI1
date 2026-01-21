@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {"provenance": [], "gpuType": "T4"},
+    "kernelspec": {"name": "python3", "display_name": "Python 3"},
+    "accelerator": "GPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": ["# 실습 6: Hugging Face로 감성 분석\n\n**목표**: 사전학습 모델로 3줄 코드 감성 분석"],
+      "metadata": {"id": "intro"}
+    },
+    {
+      "cell_type": "code",
+      "source": ["!pip install transformers -q"],
+      "metadata": {"id": "install"},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": ["from transformers import pipeline\n\n# 감성 분석 파이프라인 로드\nclassifier = pipeline(\"sentiment-analysis\")\nprint(\"모델 로드 완료!\")"],
+      "metadata": {"id": "load"},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": ["# 영어 감성 분석\ntexts = [\n    \"I love this movie! It's amazing!\",\n    \"This is the worst film I've ever seen.\",\n    \"The movie was okay, nothing special.\",\n    \"Absolutely fantastic! Must watch!\"\n]\n\nfor text in texts:\n    result = classifier(text)[0]\n    print(f\"{text[:40]}... -> {result['label']} ({result['score']:.2%})\")"],
+      "metadata": {"id": "test_en"},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": ["# 한국어 감성 분석 (다국어 모델)\nkor_classifier = pipeline(\"sentiment-analysis\", model=\"nlptown/bert-base-multilingual-uncased-sentiment\")\n\nkor_texts = [\n    \"이 영화 정말 재밌어요!\",\n    \"완전 별로였어요. 시간 낭비\",\n    \"그냥 그랬어요\"\n]\n\nfor text in kor_texts:\n    result = kor_classifier(text)[0]\n    print(f\"{text} -> {result['label']} ({result['score']:.2%})\")"],
+      "metadata": {"id": "test_ko"},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": ["# 다른 파이프라인들\nprint(\"=== 텍스트 생성 ===\")\ngenerator = pipeline(\"text-generation\", model=\"gpt2\")\nresult = generator(\"The future of AI is\", max_length=30, num_return_sequences=1)\nprint(result[0]['generated_text'])"],
+      "metadata": {"id": "generation"},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": ["# 질의응답\nprint(\"\\n=== 질의응답 ===\")\nqa = pipeline(\"question-answering\")\ncontext = \"TensorFlow is an open-source machine learning library developed by Google. It was released in 2015.\"\nquestion = \"Who developed TensorFlow?\"\nresult = qa(question=question, context=context)\nprint(f\"Q: {question}\")\nprint(f\"A: {result['answer']} (confidence: {result['score']:.2%})\")"],
+      "metadata": {"id": "qa"},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": ["---\n## 완료!\n\nHugging Face 파이프라인으로 다양한 NLP 작업을 쉽게 수행할 수 있습니다.\n\n- sentiment-analysis: 감성 분석\n- text-generation: 텍스트 생성\n- question-answering: 질의응답\n- summarization: 요약\n- translation: 번역"],
+      "metadata": {"id": "conclusion"}
+    }
+  ]
+}
