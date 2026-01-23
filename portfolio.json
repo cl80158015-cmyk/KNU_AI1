@@ -1,0 +1,81 @@
+{
+  "student_info": {
+    "name": "최민규",
+    "student_id": "8015",
+    "created_date": "2026-01-23"
+  },
+  "works": [
+    {
+      "session": 1,
+      "timestamp": "2026-01-23 05:41:25",
+      "prompt": "a cute orange cat sitting on a sofa",
+      "negative_prompt": "-",
+      "technique": "기본 프롬프팅",
+      "notes": "이미지가 무서워요",
+      "image_path": "images/session1_1.png"
+    },
+    {
+      "session": 2,
+      "timestamp": "2026-01-23 05:48:38",
+      "prompt": "forest",
+      "negative_prompt": "-",
+      "technique": "Zero-shot 프롬프팅",
+      "notes": "제로 샷은 매번 다른 다양한 숲이 나와서 본인이 원하는 것이 잘 나오지 않지만 뒤의 이미지는 비교적 일정하게 비슷한 것이 나오는 것 같음.",
+      "image_path": "images/session2_1.png"
+    },
+    {
+      "session": 2,
+      "timestamp": "2026-01-23 05:48:38",
+      "prompt": "A forest of tall birch trees, bathed in the daytime sunlight, in pastel tones",
+      "negative_prompt": "-",
+      "technique": "상세 프롬프팅",
+      "notes": "제로 샷은 매번 다른 다양한 숲이 나와서 본인이 원하는 것이 잘 나오지 않지만 뒤의 이미지는 비교적 일정하게 비슷한 것이 나오는 것 같음.",
+      "image_path": "images/session2_2.png"
+    },
+    {
+      "session": 3,
+      "timestamp": "2026-01-23 05:53:54",
+      "prompt": "a forest, A forest with tall birch trees bathed in the daytime sunlight, in pastel tones, in the style of Studio Ghibli anime, soft colors, whimsical, dramatic lighting, strong shadows, cinematic, wide shot, panoramic view",
+      "negative_prompt": "-",
+      "technique": "스타일 프롬프팅",
+      "notes": "뭔가 아직 그 스타일과 어울리지 않는 결과물도 나오는 것 같다.",
+      "image_path": "images/session3_1.png"
+    },
+    {
+      "session": 4,
+      "timestamp": "2026-01-23 06:19:47",
+      "prompt": "a beautiful portrait of a young woman, elegant dress, garden background, soft lighting",
+      "negative_prompt": "bad hands, extra fingers, mutated hands, poorly drawn face, mutation, deformed, ugly",
+      "technique": "네거티브 프롬프팅",
+      "notes": "창의성이 과한 것 보다 완전히 적은 게 결과물이 더 잘나오는 것 같다.",
+      "image_path": "images/session4_1.png"
+    },
+    {
+      "session": 5,
+      "timestamp": "2026-01-23 06:29:30",
+      "prompt": "alone",
+      "negative_prompt": "blurry, low quality, distorted, text, watermark",
+      "technique": "Step-back 프롬프팅",
+      "notes": "외로움이라는 추상적 개념의 이미지를 적으면서 외로움을 표현하는 게 아니라 그 이미지를 표현한 것 같다.",
+      "image_path": "images/session5_1.png"
+    },
+    {
+      "session": 6,
+      "timestamp": "2026-01-23 06:35:40",
+      "prompt": "a robot, reading a book, on the moon, neon lights, anime style",
+      "negative_prompt": "blurry, low quality",
+      "technique": "CoT 레이어 빌딩",
+      "notes": "레이어가 늘어나면서 표현할 것은 많아지는데 자기가 못 그릴 것 같으니까 전에 있는 레이어를 무시한다.",
+      "image_path": "images/session6_1.png"
+    },
+    {
+      "session": 7,
+      "timestamp": "2026-01-23 06:40:19",
+      "prompt": "A forest with too low birch trees that let in the daytime sunlight, photorealistic, 8k, highly detailed, professional photography, highly detailed, sharp focus, 8k resolution",
+      "negative_prompt": "-",
+      "technique": "종합",
+      "notes": "하지말라고 했는데도 하는 것을 보면 이 AI은 분명 인공지능이 아닐 것 같음.",
+      "image_path": "images/session7_1.png"
+    }
+  ]
+}
